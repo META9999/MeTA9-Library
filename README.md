@@ -5,3 +5,4 @@ ___
 ## 기본세팅
 ``lua
 local window = Library:CreateWindow("Window")
+```
