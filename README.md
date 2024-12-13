@@ -17,7 +17,7 @@ local window = Library:CreateWindow("Window")
 
 
 ## 버튼 만들기
-``lua
+```lua
 tab:AddButton("Button", "설명", function()
     print("Button Pressed")
 end)
@@ -37,7 +37,7 @@ end)
 
 ## 체크박스 만들기
 
-``lua
+```lua
 tab:AddToggle("Toggle", "켜기/끄기를 전환할 수 있는 토글 버튼입니다.", false, function(value)
     print("Toggle Value:", value)
 end)
