@@ -6,7 +6,7 @@ ___
 ```lua
 loadstring(game:HttpGet("https://raw.githubusercontent.com/META9999/MeTA9-Library/refs/heads/main/main.lua"))()
 ```
-### 코드 해석 : https://raw.githubusercontent.com/META9999/MeTA9-Library/refs/heads/main/main.lua의 코드를 불러옵니다
+### 코드 해석 : main.lua의 코드를 불러옵니다
 ___
 ## 창 만들기
 ```lua
