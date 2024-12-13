@@ -3,6 +3,6 @@
 by meta9
 ___
 ## 기본세팅
-``lua
+```lua
 local window = Library:CreateWindow("Window")
 ```
