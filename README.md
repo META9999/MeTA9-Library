@@ -46,7 +46,7 @@ end)
 
 ## 알림창 만들기
 
-``lua
+```lua
 tab:Notify("Welcome!", "MeTA9's Library에 오신 것을 환영합니다!", 3)
 ```
 
