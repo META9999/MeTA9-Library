@@ -13,6 +13,63 @@ function Library.new()
         local CloseButton = Instance.new("TextButton")
         local MinimizeButton = Instance.new("TextButton")
         
+        ScreenGui.Parent = game.CoreGui
+        ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+        
+        Main.Name = "Main"
+        Main.Parent = ScreenGui
+        Main.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+        Main.BorderColor3 = Color3.fromRGB(60, 60, 60)
+        Main.BorderSizePixel = 1
+        Main.Position = UDim2.new(0.5, -250, 0.5, -150)
+        Main.Size = UDim2.new(0, 500, 0, 300)
+        Main.Active = true
+        Main.Draggable = true
+        
+        Title.Name = "Title" 
+        Title.Parent = Main
+        Title.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+        Title.BorderColor3 = Color3.fromRGB(60, 60, 60)
+        Title.BorderSizePixel = 1
+        Title.Size = UDim2.new(1, 0, 0, 25)
+        Title.Font = Enum.Font.Gotham
+        Title.Text = "   " .. title
+        Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+        Title.TextSize = 13
+        Title.TextXAlignment = Enum.TextXAlignment.Left
+        
+        local TitleCorner = Instance.new("UICorner")
+        TitleCorner.Parent = Title
+        TitleCorner.CornerRadius = UDim.new(0, 6)
+        
+        CloseButton.Name = "CloseButton"
+        CloseButton.Parent = Title
+        CloseButton.BackgroundColor3 = Color3.fromRGB(255, 50, 50)
+        CloseButton.Position = UDim2.new(1, -25, 0, 5)
+        CloseButton.Size = UDim2.new(0, 15, 0, 15)
+        CloseButton.Font = Enum.Font.Gotham
+        CloseButton.Text = ""
+        CloseButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+        
+        local CloseCorner = Instance.new("UICorner")
+        CloseCorner.Parent = CloseButton
+        CloseCorner.CornerRadius = UDim.new(1, 0)
+        
+        CloseButton.MouseButton1Click:Connect(function()
+            local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+            local tween = game:GetService("TweenService"):Create(Main, tweenInfo, {
+                Size = UDim2.new(0, 0, 0, 0),
+                Position = UDim2.new(0.5, 0, 0.5, 0),
+                BackgroundTransparency = 1
+            })
+            tween.Completed:Connect(function()
+                ScreenGui:Destroy()
+            end)
+            tween:Play()
+        end)
+        
+        MinimizeButton.Name = "MinimizeButton"
+        MinimizeButton.Parent = Title
         local IntroFrame = Instance.new("Frame")
         IntroFrame.Name = "IntroFrame"
         IntroFrame.Parent = ScreenGui
