@@ -13,7 +13,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/META9999/MeTA9-Librar
 
 ## 창 만들기
 ```lua
-local window = Library:CreateWindow("Window")
+local window = Library:CreateWindow("ㅇㅈ")
 ```
 코드 해석 : Library 테이블 안에 있는 매서드인 CreatWindow 매서드로 창을 만듭니다. ()안에 있는 문자열은 창의 이름입니다
 
