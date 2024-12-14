@@ -1,5 +1,66 @@
 local Library = {}
 
+function Library.new()
+    local self = {}
+    
+    function self:CreateWindow(title)
+        local ScreenGui = Instance.new("ScreenGui")
+        local Main = Instance.new("Frame")
+        local Title = Instance.new("TextLabel")
+        local TabHolder = Instance.new("Frame")
+        local TabList = Instance.new("UIListLayout")
+        local ContentContainer = Instance.new("Frame")
+        local CloseButton = Instance.new("TextButton")
+        local MinimizeButton = Instance.new("TextButton")
+        
+        local IntroFrame = Instance.new("Frame")
+        IntroFrame.Name = "IntroFrame"
+        IntroFrame.Parent = ScreenGui
+        IntroFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+        IntroFrame.BorderColor3 = Color3.fromRGB(60, 60, 60)
+        IntroFrame.Position = UDim2.new(0.5, -125, 0.5, -50)
+        IntroFrame.Size = UDim2.new(0, 250, 0, 100)
+        
+        local IntroCorner = Instance.new("UICorner")
+        IntroCorner.Parent = IntroFrame
+        IntroCorner.CornerRadius = UDim.new(0, 6)
+        
+        local IntroTitle = Instance.new("TextLabel")
+        IntroTitle.Name = "IntroTitle"
+        IntroTitle.Parent = IntroFrame
+        IntroTitle.BackgroundTransparency = 1
+        IntroTitle.Position = UDim2.new(0, 0, 0, 20)
+        IntroTitle.Size = UDim2.new(1, 0, 0, 30)
+        IntroTitle.Font = Enum.Font.GothamBold
+        IntroTitle.Text = title
+        IntroTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+        IntroTitle.TextSize = 18
+        
+        local IntroSubtitle = Instance.new("TextLabel")
+        IntroSubtitle.Name = "IntroSubtitle"
+        IntroSubtitle.Parent = IntroFrame
+        IntroSubtitle.BackgroundTransparency = 1
+        IntroSubtitle.Position = UDim2.new(0, 0, 0, 50)
+        IntroSubtitle.Size = UDim2.new(1, 0, 0, 30)
+        IntroSubtitle.Font = Enum.Font.Gotham
+        IntroSubtitle.Text = "Loading..."
+        IntroSubtitle.TextColor3 = Color3.fromRGB(200, 200, 200)
+        IntroSubtitle.TextSize = 14
+        
+        IntroFrame.BackgroundTransparency = 1
+        IntroTitle.TextTransparency = 1
+        IntroSubtitle.TextTransparency = 1
+        
+        local TweenService = game:GetService("TweenService")
+        local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+        
+        TweenService:Create(IntroFrame, tweenInfo, {BackgroundTransparency = 0}):Play()
+        TweenService:Create(IntroTitle, tweenInfo, {TextTransparency = 0}):Play()
+        TweenService:Create(IntroSubtitle, tweenInfo, {TextTransparency = 0}):Play()
+        
+        task.delay(2, function()
+            local fadeOut = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+            TweenService:Create(IntroFrame, fadeOut, {BackgroundTransparency = 1}):Play()
 function Library:CreateWindow(title)
     local ScreenGui = Instance.new("ScreenGui")
     local Main = Instance.new("Frame")
@@ -535,4 +596,9 @@ function Library:CreateWindow(title)
         
         return TabFunctions
     end
+    
+    return Window
 end
+
+
+
