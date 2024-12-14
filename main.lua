@@ -538,6 +538,3 @@ function Library:CreateWindow(title)
     
     return Window
 end
-
-
-
